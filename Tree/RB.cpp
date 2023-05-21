@@ -1,22 +1,22 @@
 #include <bits/stdc++.h>
 using namespace std;
 const int MAX = 1e6;
-// Định nghĩa struct Node để tạo nút trong cây đỏ-đen
+
 struct Node
 {
   	int data;
   	Node *parent;
   	Node *left;
   	Node *right;
-  	int color; // Màu của nút (0 là đen, 1 là đỏ)
+  	int color; 
 };
-// Lớp RedBlackTree mô phỏng cây đỏ-đen và các hoạt động trên cây
+
 class RedBlackTree 
 {
    	private:
   	Node* root;
   	Node* TNULL;
-	// Tạo nút NULL, được sử dụng để tạo cây
+	
   	void createNULLNode(Node* node, Node* parent) 
   	{
     		node->data = 0;
@@ -25,7 +25,7 @@ class RedBlackTree
     		node->right = nullptr;
     		node->color = 0;
   	}
-  	// Cân bằng cây sau khi insert
+  	
   	void insertFix(Node* k)
   	{
     		Node* u;
@@ -88,7 +88,7 @@ public:
     		TNULL->right = nullptr;
     		root = TNULL;
   	}
-	//quay trái
+
 	void leftRotate(Node* x) 
 	{
     		Node* y = x->right;
@@ -101,7 +101,7 @@ public:
     		y->left = x;
 		x->parent = y;
   	}
-	//quay phải
+
   	void rightRotate(Node* x) 
   	{
     		Node* y = x->left;
@@ -114,7 +114,7 @@ public:
 		y->right = x;
 		x->parent = y;
   	}
-  	// chèn nút mới vào cây
+
 	void insert(int key) 
 	{
 		Node* node = new Node;
@@ -143,12 +143,12 @@ public:
 		if (node->parent->parent == nullptr) return;
 		insertFix(node);
   	}
-	// lấy nút gốc của cây
+
   	Node* getRoot()
   	{
   		return this->root;
 	}
-	// tính chiều cao của cây
+
   	int getHeight(Node* node) 
   	{
 		if (node == TNULL) return 0;
@@ -160,9 +160,9 @@ public:
 		}
 	}
 };
+
 int main() 
 {
-	// mở file input để lấy dữ liệu
   	freopen("data.txt","r",stdin);
   	vector<int> data(MAX);
   	for (int i = 0; i < 10; ++i)
