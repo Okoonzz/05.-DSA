@@ -1,12 +1,7 @@
-#include <iostream>
-#include <fstream>
-#include <random>
-#include <unordered_set>
-#include <ctime>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-// Function to generate random non-repeating numbers
 void generateRandomNumbers(unordered_set<int>& numbers, int count, int minVal, int maxVal) {
     random_device rd;
     mt19937 generator(rd());
@@ -19,7 +14,6 @@ void generateRandomNumbers(unordered_set<int>& numbers, int count, int minVal, i
 }
 
 int main() {
-    // Generate and store data in a file
     ofstream file("data.txt");
     if (file.is_open()) {
         for (int i = 0; i < 10; i++) {
@@ -31,11 +25,6 @@ int main() {
             file << endl;
         }
         file.close();
-        cout << "Data stored in data.txt" << endl;
     }
-    else {
-        cerr << "Unable to open file data.txt" << endl;
-    }
-
     return 0;
 }
